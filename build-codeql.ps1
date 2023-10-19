@@ -1,7 +1,9 @@
 #! /usr/bin/pwsh
 
 # Make sure that the build/ subdirectory exists and set our cwd to it.
-Remove-Item -Path .\build -Recurse -Force
+if (Test-Path -Path .\build) {
+    Remove-Item -Path .\build -Recurse -Force
+}
 New-Item -Path .\build -ItemType Directory
 Set-Location -Path .\build\
 
